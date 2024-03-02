@@ -49,6 +49,6 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           path: my_artifact
-          pattern: READMME_*.md
+          pattern: README_*.md
           merge-multiple: true
       - run: ls -R .
