@@ -8,13 +8,14 @@ jobs:
     runs-on: ${{ matrix.runs-on }}
     steps:
       - uses: actions/checkout@v4
+      - run: cp README.md README_${{ matrix.runs-on }}.md
       - uses: actions/upload-artifact@v4
         with:
           name: README_${{ matrix.runs-on }}.md
 
           # A file, directory or wildcard pattern that describes what to upload
           # Required.
-          path: README.md
+          path: README_${{ matrix.runs-on }}.md
 
           # The desired behavior if no files are found using the provided path.
           # Available Options:
