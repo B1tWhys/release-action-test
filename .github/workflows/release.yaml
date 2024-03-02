@@ -54,4 +54,7 @@ jobs:
           pattern: README_*.md
           merge-multiple: true
       - run: ls -R .
-      - run: gh release create $(git rev-parse --short HEAD) ./my_artifact/README_*.md
+      - name: Create and tag the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create $(git rev-parse --short HEAD) ./my_artifact/README_*.md
